@@ -1,9 +1,10 @@
 
+const apiUrl = process.env.REACT_APP_API_URL
 
 export const fetchApiData = async (endpoint, method = 'GET', data = null) => {
     console.log('Fetching', endpoint, method, data);
     try {
-        const resData = await fetch(`http://localhost:8080${endpoint}`, {
+        const resData = await fetch(`${apiUrl}${endpoint}`, {
             method: method,
             headers: {
                 'Content-Type': 'application/json',

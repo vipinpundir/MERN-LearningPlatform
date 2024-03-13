@@ -5,7 +5,9 @@ import { useDispatch } from 'react-redux';
 import { getCourses } from '../redux/slices/CoursesSlice.js';
 
 
+
 const FetchCourses = () => {
+    const apiUrl = process.env.REACT_APP_API_URL
     const dispatch = useDispatch()
     const [data, setData] = useState(null)
     console.log(data)
@@ -14,7 +16,7 @@ const FetchCourses = () => {
 
         const fetchData = async () => {
             try {
-                const resData = await fetch('http://localhost:8080/api/course/', {
+                const resData = await fetch(`${apiUrl}/api/course/`, {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json',

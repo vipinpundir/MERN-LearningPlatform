@@ -8,6 +8,7 @@ import { adminStatus } from '../redux/slices/AdminSlice';
 import { toast } from 'react-toastify';
 
 const Login = () => {
+    const apiUrl = process.env.REACT_APP_API_URL
     const dispatch = useDispatch();
     const redirect = useNavigate()
 
@@ -27,7 +28,7 @@ const Login = () => {
 
     const userLogin = async () => {
         try {
-            const resData = await fetch('http://localhost:8080/api/auth/login', {
+            const resData = await fetch(`${apiUrl}/api/auth/login`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

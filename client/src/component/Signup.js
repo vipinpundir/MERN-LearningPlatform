@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 
 const Signup = () => {
-
+    const apiUrl = process.env.REACT_APP_API_URL
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -24,7 +24,7 @@ const Signup = () => {
 
     const userSignup = async () => {
         try {
-            const resData = await fetch('http://localhost:8080/api/auth/signup', {
+            const resData = await fetch(`${apiUrl}/api/auth/signup`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
