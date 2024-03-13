@@ -1,0 +1,41 @@
+.Payment-from{
+ margin: auto;
+ height: 100vh;
+ display: flex;
+ align-content: center;
+ justify-content: center;
+ background-color: #ebebeb;
+
+}
+.Payment{
+  margin-top: 100px !important;
+  height: fit-content;
+  width: fit-content;
+  background-color: #f5f5f5;
+}
+.Payment-from .Payment{
+ padding: 40px ;
+}
+.Payment h1{
+color:  #181d38;
+}
+.Payment p{
+color:  #06BBCC;
+}
+
+.Payment button{
+  width: 100%;
+  border: 2px solid #06BBCC;
+  background-color: #06BBCC;
+  color: #fff;
+}
+
+.Payment button:hover {
+  background-color: #1099a5;
+  border: 2px solid #06BBCC;
+  color: #fff;
+}
+
+.Payment button:active{
+  background-color: #1099a5 !important;
+}

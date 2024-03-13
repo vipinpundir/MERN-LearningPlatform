@@ -1,0 +1,29 @@
+.CoursePreview{
+    padding-top: 80px;
+    color: #52565b;
+    min-height: 100vh;
+}
+.CoursePreview img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #06BBCC;
+    padding: 10px;
+}
+.CoursePreview .btn{
+    width: 100% !important;
+    color: #fff;
+    background-color: #06BBCC;
+    margin-bottom: 50px;
+}
+.CoursePreview .btn:hover{
+    background-color: #1099a5;
+    color: #fff;
+}
+.CoursePreview h1 {
+    color: #181d38;
+    font-weight: 800;
+    font-size: 2rem;
+  }
+  

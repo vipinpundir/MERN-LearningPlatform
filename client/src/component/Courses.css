@@ -1,0 +1,16 @@
+.Courses{
+    display: flex !important;
+    overflow: scroll;
+    gap: 20px;
+    margin-top: 20px;
+}
+.Courses::-webkit-scrollbar {
+    display: none;
+  }
+  .Course .card img{
+    height: 200px;
+  }
+  .Course button{
+    width: 100%;
+  }
+ 

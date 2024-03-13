@@ -1,0 +1,30 @@
+.FetchCourses{
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.FetchCourses::-webkit-scrollbar {
+    display: none;
+  }
+  .FetchCourses .card img{
+    height: 200px;
+  }
+  .FetchCourses button{
+    width: 100%;
+    background-color: #06BBCC;
+    border: 1px solid #06BBCC;
+  }
+ 
+  .FetchCourses button:hover{
+    background-color: #1099a5;
+    border: 1px solid #06BBCC;
+    color: #fff;
+  }
+
+  .FetchCourses button:active{
+    background-color: #1099a5 !important;
+  }
+ 
