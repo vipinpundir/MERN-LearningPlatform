@@ -10,7 +10,6 @@ const FetchCourses = () => {
     const apiUrl = process.env.REACT_APP_API_URL
     const dispatch = useDispatch()
     const [data, setData] = useState(null)
-    console.log(data)
 
     useEffect(() => {
 
@@ -33,10 +32,9 @@ const FetchCourses = () => {
                 console.log(error, 'Error')
             }
         };
-    console.log("UseEffect")
         fetchData();
         
-    }, [dispatch]);
+    }, [dispatch, apiUrl]);
 
 
     return (

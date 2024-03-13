@@ -3,9 +3,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { fetchApiData } from '../services/apiService';
 
 const MyCourses = () => {
-  const enrolled = []
   const [enrolledCoursesDetails, setEnrolledCoursesDetails] = useState([])
-  const [enrolledCourses, setEnrolledCourses] = useState(enrolled)
+  const [enrolledCourses, setEnrolledCourses] = useState([])
 
   useEffect(() => {
     const userEmail = (JSON.parse(localStorage.getItem('loginDetails'))).email
@@ -24,30 +23,33 @@ const MyCourses = () => {
 
   useEffect(() => {
 
-    for(const course of enrolledCoursesDetails){
+    if (enrolledCoursesDetails) {
+      for (const course of enrolledCoursesDetails) {
 
-      const findEnrolledCoursesById = async () => {
-        try {
-          const data = await fetchApiData(`/api/course/id/${course.courseID}`);
-          enrolled.push(data)
-          setEnrolledCourses(enrolled)
-        } catch (error) {
-          console.error("error", error);
+        const findEnrolledCoursesById = async () => {
+          try {
+            const data = await fetchApiData(`/api/course/id/${course.courseID}`);
+            setEnrolledCourses((pre) => {
+              return [...pre, data];
+            })
+          } catch (error) {
+            console.error("error", error);
+          }
         }
+        findEnrolledCoursesById()
       }
-      findEnrolledCoursesById()
     }
-  
+
   }, [enrolledCoursesDetails])
-  
- 
+
+
   return (
     <div className='MyCourses'>
       <Container>
         <Row >
           <h1>My Courses</h1>
           <p>Access your enrolled courses below. Click on a course to start learning.</p>
-          {enrolledCourses.length > 0 
+          {enrolledCourses.length > 0
             ? <>
               {enrolledCourses.map((course) => {
                 return (
