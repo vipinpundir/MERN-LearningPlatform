@@ -56,7 +56,7 @@ const AdminDashboard = () => {
     }
 
 
-    // Handle Course Adding operation
+    // Handle New Course Adding operation
     const handleAddCourseSubmit = async(e) => {
         e.preventDefault()
         try {

@@ -1,14 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./Payment.css"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { fetchApiData } from '../services/apiService';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Payment = () => {
   const { id, name, author, price } = useParams();
   const loginDetails = JSON.parse(localStorage.getItem('loginDetails'));
+  const [showLoading, setShowLoading] = useState(false)
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -17,11 +19,14 @@ const Payment = () => {
       const userData = { userEmail: loginDetails.email, courseID: id }
 
       try {
+        setShowLoading(true);
         const data = await fetchApiData(`/api/enrolled/course/`, 'POST', userData);
         console.log(data,'payment');
         toast.success(data.message);
       } catch (error) {
         console.error("error", error);
+      }finally{
+        setShowLoading(false);
       }
 
     } else {
@@ -52,7 +57,7 @@ const Payment = () => {
           <Form.Group className="mb-3 d-flex justify-content-between" >
             <Form.Label><strong>Total Amount:  {price}Rs </strong></Form.Label>
           </Form.Group>
-          <Button variant="primary" type="submit">Pay Now</Button>
+          <Button variant="primary" type="submit"> {showLoading?<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>: "Pay Now"} </Button>
 
         </Form>
       </div>

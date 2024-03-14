@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import { fetchApiData } from '../services/apiService';
+import Spinner from 'react-bootstrap/Spinner';
 
 const MyCourses = () => {
   const [enrolledCoursesDetails, setEnrolledCoursesDetails] = useState([])
   const [enrolledCourses, setEnrolledCourses] = useState([])
+  const [showLoading, setShowLoading] = useState(true)
 
   useEffect(() => {
     const userEmail = (JSON.parse(localStorage.getItem('loginDetails'))).email
@@ -38,6 +40,7 @@ const MyCourses = () => {
         }
         findEnrolledCoursesById()
       }
+      setShowLoading(false)
     }
 
   }, [enrolledCoursesDetails])
@@ -77,7 +80,7 @@ const MyCourses = () => {
                 )
               })}
             </>
-            : <><h5>You haven't enrolled in any course.</h5></>}
+            : <><h5>{showLoading?<Spinner as="span"  size="sm" role="status" aria-hidden="true"/>: "You haven't enrolled in any course."}</h5></>}
 
 
         </Row>
