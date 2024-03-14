@@ -6,12 +6,15 @@ import { useDispatch } from 'react-redux';
 import { loginCheck } from '../redux/slices/LoginSlice';
 import { adminStatus } from '../redux/slices/AdminSlice';
 import { toast } from 'react-toastify';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const Login = () => {
     const apiUrl = process.env.REACT_APP_API_URL
     const dispatch = useDispatch();
     const redirect = useNavigate()
 
+    const [showLoading, setShowLoading] = useState(false)
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -28,6 +31,7 @@ const Login = () => {
 
     const userLogin = async () => {
         try {
+            setShowLoading(true)
             const resData = await fetch(`${apiUrl}/api/auth/login`, {
                 method: "POST",
                 headers: {
@@ -57,6 +61,8 @@ const Login = () => {
         } catch (error) {
             console.log(error, 'Error')
             toast.error(error)
+        }finally{
+            setShowLoading(false)
         }
 
     };
@@ -82,7 +88,7 @@ const Login = () => {
                     <div className="mb-3 ">
                         <input className="form-control" name='password' onChange={handleChange} value={formData.password} type="current-password" placeholder="Enter your password" required />
                     </div>
-                    <Button type='submit' >Login</Button>
+                    <Button type='submit' >{showLoading?<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>: "Login"}</Button>
                     <p className='mt-3'>Have not account yet?</p><Link className='btn' to="/signup" >Signup</Link>
                 </form>
             </div>

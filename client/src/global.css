@@ -213,6 +213,11 @@ body {
   cursor: pointer;
  }
 
+ .showLoading{
+  width: fit-content;
+  margin: auto;
+ }
+
 /* MediaQuery for tablet and smartphone width  */
 @media (max-width: 765px) {
 

@@ -3,10 +3,12 @@ import { Button } from 'react-bootstrap';
 import "../component/Login.css"
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 const Signup = () => {
     const apiUrl = process.env.REACT_APP_API_URL
+    const [showLoading, setShowLoading] = useState(false)
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -24,6 +26,7 @@ const Signup = () => {
 
     const userSignup = async () => {
         try {
+            setShowLoading(true)
             const resData = await fetch(`${apiUrl}/api/auth/signup`, {
                 method: "POST",
                 headers: {
@@ -41,6 +44,8 @@ const Signup = () => {
         } catch (error) {
             console.log(error, 'Error')
             toast.error(error)
+        }finally{
+            setShowLoading(false)
         }
     };
 
@@ -68,7 +73,7 @@ const Signup = () => {
                 <div className="mb-3 ">
                     <input className="form-control" name='password' onChange={handleChange} value={formData.password} type="current-password" placeholder="Enter your password" />
                 </div>
-                <Button onClick={handleSubmit} type='submit'>Signup</Button>
+                <Button onClick={handleSubmit} type='submit'> {showLoading?<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>: "Signup"} </Button>
                 <p className='mt-3'>Already have an account?</p><Link className='btn' to="/login" >Login</Link>
 
             </form>
