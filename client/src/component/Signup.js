@@ -35,11 +35,10 @@ const Signup = () => {
                 body: JSON.stringify(formData)
             });
             const result = await resData.json();
-            if (!result.ok) {
+            if (!resData.ok) {
                 toast.error(result.error);
                 throw new Error(resData.error);
             }
-            console.log(result, 'Result')
             toast.success("User created successfully")
         } catch (error) {
             console.log(error, 'Error')

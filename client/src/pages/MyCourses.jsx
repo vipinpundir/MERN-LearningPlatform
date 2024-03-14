@@ -80,7 +80,7 @@ const MyCourses = () => {
                 )
               })}
             </>
-            : <><h5>{showLoading?<Spinner as="span"  size="sm" role="status" aria-hidden="true"/>: "You haven't enrolled in any course."}</h5></>}
+            : <><h5>{showLoading?<Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true"/>: "You haven't enrolled in any course."}</h5></>}
 
 
         </Row>

@@ -21,7 +21,6 @@ const Payment = () => {
       try {
         setShowLoading(true);
         const data = await fetchApiData(`/api/enrolled/course/`, 'POST', userData);
-        console.log(data,'payment');
         toast.success(data.message);
       } catch (error) {
         console.error("error", error);
