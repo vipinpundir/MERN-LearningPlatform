@@ -72,7 +72,7 @@ const Signup = () => {
                 <div className="mb-3 ">
                     <input className="form-control" name='password' onChange={handleChange} value={formData.password} type="current-password" placeholder="Enter your password" />
                 </div>
-                <Button onClick={handleSubmit} type='submit'> {showLoading?<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>: "Signup"} </Button>
+                <Button onClick={handleSubmit} type='submit'> {showLoading?<Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true"/>: "Signup"} </Button>
                 <p className='mt-3'>Already have an account?</p><Link className='btn' to="/login" >Login</Link>
 
             </form>

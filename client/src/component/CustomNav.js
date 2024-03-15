@@ -21,7 +21,7 @@ const CustomNav = () => {
     toast.success("Logout successfully");
     dispatch(loginCheck(false));
     dispatch(adminStatus(false));
-    localStorage.removeItem('loginDetails');
+    localStorage.removeItem('e-learn');
   }
 
   return (

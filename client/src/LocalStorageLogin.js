@@ -8,7 +8,7 @@ const LocalStorageLogin = () => {
 
     const dispatch = useDispatch();
 
-    const localLoginDetails = JSON.parse(localStorage.getItem('loginDetails'));
+    const localLoginDetails = JSON.parse(localStorage.getItem('e-learn'));
 
     useEffect(() => {
         if (localLoginDetails != null) {

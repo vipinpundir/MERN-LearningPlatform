@@ -45,7 +45,7 @@ const Login = () => {
                 throw new Error(resData.error);
             }
             toast.success(result.message);
-            localStorage.setItem('loginDetails', JSON.stringify(result.user));
+            localStorage.setItem('e-learn', JSON.stringify(result.user));
             dispatch(loginCheck(true))
 
             // Check is Admin or not 
@@ -88,7 +88,7 @@ const Login = () => {
                     <div className="mb-3 ">
                         <input className="form-control" name='password' onChange={handleChange} value={formData.password} type="current-password" placeholder="Enter your password" required />
                     </div>
-                    <Button type='submit' >{showLoading?<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>: "Login"}</Button>
+                    <Button type='submit' >{showLoading?<Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true"/>: "Login"}</Button>
                     <p className='mt-3'>Have not account yet?</p><Link className='btn' to="/signup" >Signup</Link>
                 </form>
             </div>

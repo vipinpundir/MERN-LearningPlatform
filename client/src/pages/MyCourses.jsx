@@ -9,7 +9,7 @@ const MyCourses = () => {
   const [showLoading, setShowLoading] = useState(true)
 
   useEffect(() => {
-    const userEmail = (JSON.parse(localStorage.getItem('loginDetails'))).email
+    const userEmail = (JSON.parse(localStorage.getItem('e-learn'))).email
 
     const findEnrolledCoursesDetails = async () => {
       try {

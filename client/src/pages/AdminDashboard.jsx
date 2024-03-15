@@ -39,8 +39,7 @@ const AdminDashboard = () => {
     const handleAddChange = (e) => {
         let name = e.target.name
         let value = e.target.value
-        console.log(name, value)
-        console.log(addFormData)
+      
         setAddFormData({
             ...addFormData,
             [name]: value
@@ -148,7 +147,7 @@ const AdminDashboard = () => {
                     <h2 className='mb-5'>Edit Course Details</h2>
                     <input className="form-control" name='title' onChange={handleEditChange} value={editFormData.title} type="text" placeholder="Enter course title" required />
                     <input className="form-control" name='author' onChange={handleEditChange} value={editFormData.author} type="text" placeholder="Enter instructor name" required />
-                    <input className="form-control" name='categories' onChange={handleEditChange} value={editFormData.category} type="text" placeholder="Enter course category" required />
+                    <input className="form-control" name='category' onChange={handleEditChange} value={editFormData.category} type="text" placeholder="Enter course category" required />
                     <input className="form-control" name='video_url' onChange={handleEditChange} value={editFormData.video_url} type="url" placeholder="Enter video_url" required />
                     <input className="form-control" name='img_url' onChange={handleEditChange} value={editFormData.img_url} type="url" placeholder="Enter thumbnail_url" required />
                     <input className="form-control" name='price' onChange={handleEditChange} value={editFormData.price} type="text" placeholder="Enter course price" required />
