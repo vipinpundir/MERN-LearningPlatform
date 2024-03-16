@@ -7,7 +7,9 @@ const generateTokenAndSetCookie = (email, res) => {
 
     res.cookie('jwt', token, {
         maxAge: 5 * 24 * 60 * 60 * 1000, // 5 days in milliseconds
-        httpOnly: true, 
+        httpOnly: true,
+        sameSite: 'none', // Set SameSite attribute to 'none' for cross-origin requests
+        secure: true // Set Secure flag to ensure cookie is only sent over HTTPS
     });
   
 };

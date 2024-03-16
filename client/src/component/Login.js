@@ -67,7 +67,6 @@ const Login = () => {
         }
 
     };
-    console.log(apiUrl, 'login')
 
     const handleLogin = (e) => {
         e.preventDefault()
