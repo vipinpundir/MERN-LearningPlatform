@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 // Use cors middleware
 app.use(cors({
-    origin: 'http://localhost:3000', // Allow requests from port 3000 (React frontend)
+    origin: 'https://learnhub360.netlify.app', // Allow requests from port 3000 (React frontend)
     credentials: true // Allow cookies to be sent and received across domains
 }));
 
