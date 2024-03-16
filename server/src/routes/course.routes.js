@@ -1,14 +1,15 @@
 const express = require("express")
 const router = express.Router()
 
-const courseController = require("../controllers/course.controller")
+const courseController = require("../controllers/course.controller");
+const protectRoute = require("../middleware/protectRoute");
 
 
 router.get("/", courseController.getAllCourses);
-router.get("/id/:id", courseController.getCourseById);
-router.post("/add", courseController.createCourse);
-router.patch("/update/:id", courseController.updateCourseById);
-router.delete("/delete/:id", courseController.deleteCourseById);
+router.get("/id/:id", protectRoute, courseController.getCourseById);
+router.post("/add", protectRoute, courseController.createCourse);
+router.patch("/update/:id", protectRoute, courseController.updateCourseById);
+router.delete("/delete/:id", protectRoute, courseController.deleteCourseById);
 
 
 module.exports = router;

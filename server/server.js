@@ -6,12 +6,21 @@ require('dotenv').config(); // Load environment variables from .env file
 const db = require('./src/db/connectToMongoDB'); // Assuming this connects to MongoDB
 const bodyParser = require('body-parser');
 
+const cookieParser = require('cookie-parser'); // Pars cookies
+app.use(cookieParser()); // Load cookie
+
+
 const port = process.env.PORT; // Get the port from environment variables
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
+
 // Use cors middleware
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // Allow requests from port 3000 (React frontend)
+    credentials: true // Allow cookies to be sent and received across domains
+}));
+
 
 // Import routes
 const authRoutes = require("./src/routes/auth.routes");

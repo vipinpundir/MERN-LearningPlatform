@@ -60,11 +60,11 @@ const MyCourses = () => {
                     <Col className='p-4' md={8}>
                       <h1>{course.title}</h1>
                       <p>{course.description}</p>
-                      <Row>
+                      <Col>
                         <Col><p><strong>Instructor:</strong> {course.author}</p></Col>
                         <Col><p><strong>Category:</strong> {course.category}</p></Col>
                         <Col><p><strong>Duration:</strong> 10 hourse</p></Col>
-                      </Row>
+                      </Col>
                     </Col>
                     <Col className='p-4' md={4}>
                       <iframe

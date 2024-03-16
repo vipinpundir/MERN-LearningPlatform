@@ -20,12 +20,12 @@ const CoursePreview = () => {
           <Col className='p-4' md={6}>
             <h1>{coursePreview.name}</h1>
             <p>{coursePreview.description}</p>
-            <Row>
+            <Col>
               <Col><p><strong>Instructor:</strong> {coursePreview.author}</p></Col>
               <Col><p><strong>Category:</strong> {coursePreview.category}</p></Col>
-              <Col><p><strong>Duration:</strong> 10 hourse</p></Col>
+              <Col><p><strong>Duration:</strong> 10 hours</p></Col>
               <Col><p><strong>Price:</strong> {coursePreview.price}Rs</p></Col>
-            </Row>
+            </Col>
             <Link to={`/payment/${coursePreview.id}/${coursePreview.name}/${coursePreview.author}/${coursePreview.price}`}>
               <div className="btn">Buy Course</div>
             </Link>

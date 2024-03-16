@@ -37,7 +37,8 @@ const Login = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formData),
+                credentials: 'include' // Include cookies in the request
             });
             const result = await resData.json();
             if (!resData.ok) {
@@ -61,11 +62,12 @@ const Login = () => {
         } catch (error) {
             console.log(error, 'Error')
             toast.error(error)
-        }finally{
+        } finally {
             setShowLoading(false)
         }
 
     };
+    console.log(apiUrl, 'login')
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -88,7 +90,7 @@ const Login = () => {
                     <div className="mb-3 ">
                         <input className="form-control" name='password' onChange={handleChange} value={formData.password} type="current-password" placeholder="Enter your password" required />
                     </div>
-                    <Button type='submit' >{showLoading?<Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true"/>: "Login"}</Button>
+                    <Button type='submit' >{showLoading ? <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" /> : "Login"}</Button>
                     <p className='mt-3'>Have not account yet?</p><Link className='btn' to="/signup" >Signup</Link>
                 </form>
             </div>

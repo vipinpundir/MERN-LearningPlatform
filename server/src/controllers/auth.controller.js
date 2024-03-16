@@ -1,6 +1,7 @@
 
 const User = require("../models/user.model")
 const bcrypt = require('bcrypt'); 
+const { generateTokenAndSetCookie } = require("../utils/generateToken");
 const saltRounds = 10;
 
 const signup = async (req, res) => {
@@ -49,7 +50,16 @@ const login = async (req, res) => {
         }
 
         // If the user and password are valid
-        res.status(201).json({ message: "Login successful", user });
+
+        // generate jwt token
+        generateTokenAndSetCookie(email, res)
+
+
+        res.status(201).json({ message: "Login successful", user:{
+            _id: user._id,
+            fullName: user.fullName,
+            email: user.email
+        } });
 
     } catch (error) {
         console.error(error);

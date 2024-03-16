@@ -1,11 +1,12 @@
 const express = require("express")
 const router = express.Router()
 
-const enrolledCourseController = require("../controllers/enrolledCourse.controller")
+const enrolledCourseController = require("../controllers/enrolledCourse.controller");
+const protectRoute = require("../middleware/protectRoute");
 
 
-router.post("/", enrolledCourseController.enrollUserInCourse);
-router.get("/:userEmail", enrolledCourseController.findEnrolledCoursesForUser);
+router.post("/", protectRoute, enrolledCourseController.enrollUserInCourse);
+router.get("/:userEmail", protectRoute, enrolledCourseController.findEnrolledCoursesForUser);
 
 
 

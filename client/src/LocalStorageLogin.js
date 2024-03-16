@@ -12,13 +12,14 @@ const LocalStorageLogin = () => {
 
     useEffect(() => {
         if (localLoginDetails != null) {
+            if (localLoginDetails.email) {
+                dispatch(loginCheck(true));
+            }
             
             if (localLoginDetails.role === 'admin') {
                 dispatch(adminStatus(true));
             }
-            if (localLoginDetails.role === 'user') {
-                dispatch(loginCheck(true));
-            }
+           
         }
 
     }, [dispatch, localLoginDetails]);

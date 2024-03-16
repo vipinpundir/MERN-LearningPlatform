@@ -9,7 +9,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const Payment = () => {
   const { id, name, author, price } = useParams();
-  const loginDetails = JSON.parse(localStorage.getItem('loginDetails'));
+  const loginDetails = JSON.parse(localStorage.getItem('e-learn'));
   const [showLoading, setShowLoading] = useState(false)
 
   const handleSubmit = async(e) => {

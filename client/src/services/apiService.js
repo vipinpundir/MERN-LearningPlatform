@@ -8,7 +8,8 @@ export const fetchApiData = async (endpoint, method = 'GET', data = null) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: data? JSON.stringify(data) : undefined
+            credentials: 'include', // Include cookies in the request
+            body: data? JSON.stringify(data) : undefined,
         });
 
         const result = await resData.json();
